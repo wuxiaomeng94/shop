@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.css}" />
+    <link rel="stylesheet" th:href="@{/layer/theme/default/layer.css}">
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+
+    <script type="text/javascript" th:src="@{/js/jquery-2.1.4.min.js}"></script>
+    <script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.js}"></script>
+    <script type="text/javascript" th:src="@{/layer/layer.js}"></script>
+    <!--<script type="text/javascript" th:src="@{/plugins/angularjs/angular.min.js}"></script>-->
+    <script type="text/javascript" th:src="@{/plugins/angularjs/angular.min.js}"></script>
+</head>
+<style>
+
+</style>
+<body ng-app="shop" ng-controller="shopGoodsController" ng-init="findAll()">
+
+<!--<h2>hello world</h2>-->
+
+    <div class="product w">
+        <div class="pro-head">
+            <h4>精品推荐</h4>
+            <a href="#">查看全部</a>
+        </div>
+        <div class="pro-body clearfix">
+            <ul>
+                <li>
+                    <div class="pic">
+                        <img src="images/pic1.png">
+                    </div>
+                    <div class="pro-title">
+                        Think PHP 5.0 博客系统实战
+                        项目XXX
+                    </div>
+                    <p><span>高级</span> 1125人正在学习</p>
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="images/pic1.png">
+                    </div>
+                    <div class="pro-title">
+                        Think PHP 5.0 博客系统实战
+                        项目XXX
+                    </div>
+                    <p><span>高级</span> 1125人正在学习</p>
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="images/pic1.png">
+                    </div>
+                    <div class="pro-title">
+                        Think PHP 5.0 博客系统实战
+                        项目XXX
+                    </div>
+                    <p><span>高级</span> 1125人正在学习</p>
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="images/pic1.png">
+                    </div>
+                    <div class="pro-title">
+                        Think PHP 5.0 博客系统实战
+                        项目XXX
+                    </div>
+                    <p><span>高级</span> 1125人正在学习</p>
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="images/pic1.png">
+                    </div>
+                    <div class="pro-title">
+                        Think PHP 5.0 博客系统实战
+                        项目XXX
+                    </div>
+                    <p><span>高级</span> 1125人正在学习</p>
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="images/pic1.png">
+                    </div>
+                    <div class="pro-title">
+                        Think PHP 5.0 博客系统实战
+                        项目XXX
+                    </div>
+                    <p><span>高级</span> 1125人正在学习</p>
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="images/pic1.png">
+                    </div>
+                    <div class="pro-title">
+                        Think PHP 5.0 博客系统实战
+                        项目XXX
+                    </div>
+                    <p><span>高级</span> 1125人正在学习</p>
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="images/pic1.png">
+                    </div>
+                    <div class="pro-title">
+                        Think PHP 5.0 博客系统实战
+                        项目XXX
+                    </div>
+                    <p><span>高级</span> 1125人正在学习</p>
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="images/pic1.png">
+                    </div>
+                    <div class="pro-title">
+                        Think PHP 5.0 博客系统实战
+                        项目XXX
+                    </div>
+                    <p><span>高级</span> 1125人正在学习</p>
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="images/pic1.png">
+                    </div>
+                    <div class="pro-title">
+                        Think PHP 5.0 博客系统实战
+                        项目XXX
+                    </div>
+                    <p><span>高级</span> 1125人正在学习</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="text-align: center">
+        <button type="button" class="btn btn-info btn-sm" id="submitBtn">btn</button>
+    </div>
+
+    <script>
+
+        let app = angular.module('shop', []);//创建自定义模块
+        app.controller('shopGoodsController', function ($scope, $http) {
+
+            $scope.findAll = function () {
+                //查询所有秒杀商品的list
+                $http.get('secKillGoodsList').success(function (data) {
+                    //alert(data);
+                    $scope.goodList = data.data;
+                    console.log(data.data);
+                })
+            }
+            
+        });//创建自定义控制器
+
+
+    </script>
+</body>
+</html>
